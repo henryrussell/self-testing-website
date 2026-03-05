@@ -10,10 +10,9 @@
     "unit-tests": "jest",
     "e2e-tests": "playwright test --config playwright-tests/playwright.config.ts --headed",
     "e2e-tests-headless": "playwright test --config playwright-tests/playwright.config.ts"
-
   },
   "dependencies": {
-    "next": "15.1.6",
+    "next": "15.1.11",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0"
