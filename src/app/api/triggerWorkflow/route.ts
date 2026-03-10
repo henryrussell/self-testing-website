@@ -1,7 +1,46 @@
 // src/app/api/triggerWorkflow/route.ts
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-export async function POST() {
+// Rate limiting: simple in-memory store (use Redis in production)
+const requestCounts: Record<string, { count: number; resetTime: number }> = {};
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const limit = requestCounts[ip];
+
+  if (!limit || now > limit.resetTime) {
+    requestCounts[ip] = { count: 1, resetTime: now + 60 * 1000 }; // 60 second window
+    return true;
+  }
+
+  if (limit.count >= 5) { // Max 5 requests per minute
+    return false;
+  }
+
+  limit.count++;
+  return true;
+}
+
+// CSRF token validation
+function isValidCSRFToken(token: string | null): boolean {
+  // In production, validate against stored CSRF tokens in session
+  // This is a simplified check - implement proper CSRF protection
+  return !!token && token.length > 0;
+}
+
+export async function POST(req: NextRequest) {
+  // Rate limiting
+  const ip = req.headers.get('x-forwarded-for') || 'unknown';
+  if (!checkRateLimit(ip)) {
+    return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
+  }
+
+  // CSRF validation
+  const csrfToken = req.headers.get('x-csrf-token');
+  if (!isValidCSRFToken(csrfToken)) {
+    return NextResponse.json({ error: 'CSRF token invalid or missing' }, { status: 403 });
+  }
+
   const githubToken = process.env.GITHUB_TOKEN;
   const workflowId = 'mainTests.yml';
   const owner = 'henryrussell';

@@ -190,3 +190,20 @@ h2 {
 .handle { /* Style for the draggable handle */
   cursor: grab; /* Change cursor on hover */
 }
+
+.logs {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-family: monospace;
+}
+
+.job-steps {
+  list-style-type: none;
+  padding: 0;
+}
+
+.job-step {
+  margin-bottom: 5px;
+}

@@ -1,6 +1,11 @@
 import { useState } from "react";
 import WorkflowStatusComponent from "./TestOutput"; // Import the new component
 
+// Generate a simple CSRF token for local development
+function generateCSRFToken(): string {
+  return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+}
+
 export default function TestRunnerComponent() {
   const [workflowStatus, setWorkflowStatus] = useState("");
   const [runId, setRunId] = useState(null); // Add state for the run ID
@@ -10,8 +15,12 @@ export default function TestRunnerComponent() {
     console.log(workflowStatus);
 
     try {
+      const csrfToken = generateCSRFToken();
       const response = await fetch("/api/triggerWorkflow", {
         method: "POST",
+        headers: {
+          "x-csrf-token": csrfToken,
+        },
       });
       const data = await response.json();
 

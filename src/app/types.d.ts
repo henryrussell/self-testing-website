@@ -20,3 +20,14 @@ interface Skill {
 interface WorkflowStatusProps {
   runId: number; // Or string, depending on the type of your runId
 }
+
+interface Step {
+  name: string;
+  status: string;
+}
+
+interface Job {
+  name: string;
+  status: string;
+  steps: Step[];
+}
