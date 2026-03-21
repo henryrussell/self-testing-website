@@ -2,20 +2,27 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import Home from '../src/app/page.tsx';
 
-describe('Home Page', () => {  // More descriptive describe name
+describe('Home Page', () => {
 
   it('renders the main content', () => {
     render(<Home />);
 
-    // Test for user-visible elements and content, not implementation details
-    expect(screen.getByRole('heading', { name: 'My Projects' })).toBeInTheDocument(); // Example: Check for the "My Projects" heading
-    expect(screen.getByRole('heading', { name: 'Rate The Skills I Used To Make This Site!' })).toBeInTheDocument(); // Example: Check for the "Rate the skills" heading
+    // Check for main title
+    expect(screen.getByRole('heading', { name: 'THE SELF TESTING WEBSITE' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'RUN THE TESTS:' })).toBeInTheDocument();
 
-    // Or, if absolutely necessary, use data-testid for elements that are hard to query otherwise:
-    const intro = screen.getByTestId('intro'); // Use sparingly and only when needed
+    // Check for intro section
+    const intro = screen.getByTestId('intro');
     expect(intro).toBeInTheDocument();
 
-    // Instead of testing for *all* elements, focus on key elements and functionality.
-    // Testing *everything* makes your tests brittle.
+    // Check for the test runner button
+    expect(screen.getByRole('button', { name: 'Run All Tests' })).toBeInTheDocument();
+  });
+
+  it('displays introduction text', () => {
+    render(<Home />);
+
+    const introText = screen.getByText(/I came up with this unique idea to showcase my software engineering skills/);
+    expect(introText).toBeInTheDocument();
   });
 });
