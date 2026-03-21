@@ -36,8 +36,11 @@ body.dark {
 }
 
 .animated-background { /* Light Mode */
-  background-color: #aaf2f94d;
-  background-image: radial-gradient(circle, rgba(0, 123, 255, 0.2) 2px, transparent 2px);
+  background-color: #f0f9ff;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.08) 0px, transparent 50px),
+    radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.08) 0px, transparent 50px),
+    radial-gradient(circle at 40% 20%, rgba(59, 130, 246, 0.06) 0px, transparent 80px);
 }
 
 .dark .animated-background { /* Dark Mode */
@@ -50,12 +53,42 @@ footer {
   @apply p-4 bg-gray-900 dark:bg-black text-gray-300 dark:text-gray-300; /* Apply styles to both */
 }
 
+.footer-content {
+  @apply flex flex-col md:flex-row items-center justify-between gap-4;
+  @apply max-w-4xl mx-auto;
+}
+
+.footer-section {
+  @apply flex items-center justify-center md:justify-start;
+}
+
+.last-updated {
+  @apply text-sm text-gray-400 dark:text-gray-500;
+}
+
+.social-links {
+  @apply flex gap-4;
+}
+
+.social-link {
+  @apply text-gray-300 dark:text-gray-300 hover:text-blue-400 dark:hover:text-blue-300;
+  @apply font-semibold transition-colors duration-300;
+}
+
+nav {
+  @apply flex flex-row items-center justify-center gap-8;
+}
+
 nav ul {
   @apply flex justify-center space-x-8; /* Center the nav items, space between */
 }
 
 header nav li a {
   @apply text-gray-300 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400; /* Text color */
+}
+
+.header-social-links {
+  @apply flex gap-6 justify-center;
 }
 
 main {
@@ -206,4 +239,100 @@ h2 {
 
 .job-step {
   margin-bottom: 5px;
+}
+
+/* About Page Styles */
+.about-page {
+  @apply max-w-4xl mx-auto py-8;
+}
+
+.about-header {
+  @apply mb-12 text-center;
+}
+
+.header-content {
+  @apply flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12;
+}
+
+.profile-picture-container {
+  @apply flex-shrink-0;
+}
+
+.profile-picture {
+  @apply rounded-full border-4 border-blue-500 dark:border-blue-400 shadow-lg;
+  @apply object-cover;
+}
+
+.header-text {
+  @apply flex-1 max-w-2xl;
+}
+
+.about-header h1 {
+  @apply text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600 dark:from-blue-400 dark:via-purple-400 dark:to-blue-500 bg-clip-text text-transparent;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.about-intro {
+  @apply space-y-4 text-left;
+}
+
+.headline {
+  @apply text-xl md:text-2xl font-semibold text-gray-700 dark:text-gray-300 leading-relaxed;
+}
+
+.subheading {
+  @apply text-lg text-gray-600 dark:text-gray-400 leading-relaxed;
+}
+
+.career-highlights,
+.technical-experience,
+.soft-skills {
+  @apply mb-10 p-6 rounded-lg bg-white dark:bg-gray-800 shadow-md;
+}
+
+.career-highlights h2,
+.technical-experience h2,
+.soft-skills h2 {
+  @apply text-3xl font-bold mb-4 text-gray-800 dark:text-gray-100 text-left;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.highlights-list,
+.qualities-list {
+  @apply space-y-3 list-none pl-0;
+}
+
+.highlights-list li,
+.qualities-list li {
+  @apply text-gray-700 dark:text-gray-300 flex items-start;
+  @apply before:content-['✓'] before:mr-4 before:font-bold before:text-green-500 dark:before:text-green-400;
+}
+
+.technical-experience p {
+  @apply text-gray-700 dark:text-gray-300 leading-relaxed;
+}
+
+.skills-section {
+  @apply mb-10;
+}
+
+.skills-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+}
+
+.skill-category {
+  @apply p-6 rounded-lg bg-white dark:bg-gray-800 shadow-md;
+}
+
+.skill-category h3 {
+  @apply text-xl font-bold mb-4 text-gray-800 dark:text-gray-100;
+}
+
+.skill-tags {
+  @apply flex flex-wrap gap-2;
+}
+
+.skill-tag {
+  @apply inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium;
+  @apply hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors duration-300;
 }

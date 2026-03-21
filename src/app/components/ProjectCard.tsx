@@ -10,11 +10,6 @@ export default function ProjectCard({ title, description, image, video, link }: 
         <video src={video} controls preload='metadata' autoPlay muted className="w-full h-auto rounded-lg mb-2">
           {description && <p>{description}</p>} {/* Conditionally render description */}
         </video>
-      {link && (
-        <a href={link} target="_blank" rel="noopener noreferrer">
-          View Project
-        </a>
-      )}
     </div>
   );
 }

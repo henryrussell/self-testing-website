@@ -3,7 +3,7 @@ export default function Intro(){
     return(
         <div className="intro" data-testid='intro'>
             <h1> THE SELF TESTING WEBSITE </h1>
-            <p> I created this site to showcase my front end development and automated testing skills. The site includes various features like old projects, an animated background, light/dark mode, and a responsive section for rating my skills, but these are really placeholders for the main purpose - a website that runs tests on itself!</p>
+            <p> I came up with this unique idea to showcase my software engineering skills by creating a website that runs tests on itself! Clicking the button will trigger a github actions pipeline that runs e2e and unit tests on this very website. You'll see the logs of the pipeline stages as it runs live and then it will also fetch a report of the tests as evidence they really ran. It should take around 2 minutes to complete.</p>
         </div>
     )
 }
