@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export default function ProjectCard({ title, description, image, video, link }: Project) {
+export default function ProjectCard({ title, description, image, video }: Project) {
   return (
     <div className="project-card" data-testid='project-card'>
       <h3>{title}</h3>
