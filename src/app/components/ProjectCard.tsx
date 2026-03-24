@@ -18,9 +18,17 @@ export default function ProjectCard({ title, description, image, video, link }: 
         <Image src={image} alt={title} width={500} height={300} />
       )}
         {video && (
-        <video src={video} controls preload='metadata' autoPlay muted className="w-full h-auto rounded-lg mb-2">
-        </video>
-      )}
+          <video 
+            src={video} 
+            preload="metadata" 
+            autoPlay 
+            muted 
+            loop 
+            playsInline 
+            className="w-full h-auto rounded-lg mb-2"
+          >
+          </video>
+        )}
         <p>{description}</p>
     </div>
   );
