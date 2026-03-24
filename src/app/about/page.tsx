@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function AboutPage() {
   const technicalSkills = [
@@ -62,6 +63,12 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="ai-chatbot">
+        <button className="chatbot-link">
+          <Link href="https://portfolio-chatbot-orcin.vercel.app/">Chat with my AI assistant</Link>
+        </button>
       </section>
 
       <section className="career-highlights">

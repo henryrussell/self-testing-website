@@ -1,15 +1,27 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
-export default function ProjectCard({ title, description, image, video }: Project) {
+export default function ProjectCard({ title, description, image, video, link }: Project) {
   return (
     <div className="project-card" data-testid='project-card'>
-      <h3>{title}</h3>
+      <h3>
+        {title}
+        {link && (
+          <span className="ml-2">
+            <Link href={link}>
+                Click here to try it out!
+            </Link>
+          </span>
+        )}
+      </h3>
       {image && (
         <Image src={image} alt={title} width={500} height={300} />
       )}
+        {video && (
         <video src={video} controls preload='metadata' autoPlay muted className="w-full h-auto rounded-lg mb-2">
-          {description && <p>{description}</p>} {/* Conditionally render description */}
         </video>
+      )}
+        <p>{description}</p>
     </div>
   );
 }
