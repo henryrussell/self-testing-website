@@ -13,8 +13,8 @@ const inter = Inter({
 
 //meta data for the website - will appear as tab name
 export const metadata: Metadata = {
-  title: 'Hire Henry - Testing and Development Portfolio',
-  description: 'Welcome to my website. Developed with nextjs, react and fuck knows what else.',
+  title: 'Self Testing Website and Portfolio',
+  description: 'Click the button to run the tests. Check out my other projects and experience too!',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
