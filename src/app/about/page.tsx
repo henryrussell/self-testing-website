@@ -7,6 +7,11 @@ export default function AboutPage() {
     'Node.js',
     'Playwright',
     'WebdriverIO',
+    'Large Language Model (LLM) Integration',
+    'AI Dataset Preparation & Engineering',
+    'Prompt Engineering/Refinement',
+    'AI Framework Implementation',
+    'RAG (Retrieval-Augmented Generation) Concepts',
     'Selenium WebDriver',
     'Test Automation',
     'Jest',
@@ -83,9 +88,7 @@ export default function AboutPage() {
       <section className="technical-experience">
         <h2>Technical Experience</h2>
         <p>
-          TypeScript has been the predominant language I have gained experience with in my professional role. 
-          I have extensive experience working with Jenkins pipelines to facilitate automation testing and have 
-          developed expertise across the entire spectrum of modern web testing frameworks and methodologies.
+          With four years of experience as an ISTQB Certified Software Engineer, I specialize in building robust automation frameworks using TypeScript and Node.js across the full modern testing stack. My technical expertise spans the development of interchangeable frameworks with Playwright and WebdriverIO, alongside unit testing in Jest and React Testing Library. I have a proven track record of managing complex CI/CD lifecycles, from architecting Jenkins pipelines for monthly SDK releases at Lloyds Banking Group to implementing real-time, self-validating GitHub Actions in live environments. Beyond core Quality Engineering, I am proficient in React 19 and Tailwind CSS, frequently integrating advanced web technologies like the Vercel AI SDK and REST APIs to bridge the gap between high-performance frontend development and comprehensive automated verification.
         </p>
       </section>
 
