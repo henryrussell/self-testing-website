@@ -12,7 +12,7 @@ test.describe('The main page is displayed', () => {
   });
 
   test('check the title content is correct', async ({ page }) => {
-    await expect(page).toHaveTitle(/Hire Henry - Testing and Development Portfolio/)
+    await expect(page).toHaveTitle('Self Testing Website and Portfolio');
   });
 
 });
