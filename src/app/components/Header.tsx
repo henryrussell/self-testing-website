@@ -2,39 +2,19 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
-    <header data-testid='header'>
-      <nav>
-        <ul>
+    <header data-testid='header' className="sticky top-0 z-10">
+      <nav className="flex flex-row items-center justify-center p-2 md:p-4">
+        <ul className="flex flex-row items-center justify-center gap-1 md:gap-6">
           <li>
-            <Link href="/">Home</Link>
+            <Link href="/" className="px-2 py-1 md:px-4 md:py-2 text-xs md:text-base hover:text-orange-500 transition-colors rounded-md hover:bg-gray-800 dark:hover:bg-gray-700 whitespace-nowrap">Home</Link>
           </li>
           <li>
-            <Link href="/about">About Me</Link>
+            <Link href="/about" className="px-2 py-1 md:px-4 md:py-2 text-xs md:text-base hover:text-orange-500 transition-colors rounded-md hover:bg-gray-800 dark:hover:bg-gray-700 whitespace-nowrap">About Me</Link>
           </li>
           <li>
-            <Link href="/projects">Projects</Link>
+            <Link href="/projects" className="px-2 py-1 md:px-4 md:py-2 text-xs md:text-base hover:text-orange-500 transition-colors rounded-md hover:bg-gray-800 dark:hover:bg-gray-700 whitespace-nowrap">Projects</Link>
           </li>
         </ul>
-        <div className="header-social-links">
-          <a 
-            href="https://www.linkedin.com/in/henry-russell/?skipRedirect=true" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="social-link"
-            aria-label="LinkedIn Profile"
-          >
-            LinkedIn
-          </a>
-          <a 
-            href="https://github.com/henryrussell" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="social-link"
-            aria-label="GitHub Profile"
-          >
-            GitHub
-          </a>
-        </div>
       </nav>
     </header>
   );
