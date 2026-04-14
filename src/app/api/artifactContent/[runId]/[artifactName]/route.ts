@@ -91,7 +91,13 @@ export async function GET(
     const zip = await jszip.loadAsync(zipBuffer);
 
     // For HTML reports, get the index.html file
-    const indexFile = zip.file('index.html');
+    // Coverage report is nested in lcov-report/, playwright report is at root
+    let indexFile = zip.file('index.html');
+    if (!indexFile && validName === 'coverage-report') {
+      // Try lcov-report/index.html for coverage reports
+      indexFile = zip.file('lcov-report/index.html');
+    }
+    
     if (!indexFile) {
       return NextResponse.json({ error: 'No index.html found in artifact' }, { status: 400 });
     }
