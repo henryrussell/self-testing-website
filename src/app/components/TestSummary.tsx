@@ -65,7 +65,7 @@ export default function TestSummary({ runId }: { runId: number }) {
         }
 
         setLoading(false);
-      } catch (err) {
+      } catch {
         // Silently fail in test environment
         setLoading(false);
       }
