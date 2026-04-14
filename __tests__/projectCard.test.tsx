@@ -6,8 +6,10 @@ import ProjectCard from '../src/app/components/ProjectCard';
 jest.mock('next/image', () => ({
   __esModule: true,
   default: (props: any) => {
+    // Filter out Next.js Image-specific props that aren't valid HTML img attributes
+    const { priority, fill, loader, onLoadingComplete, placeholder, blurDataURL, unoptimized, quality, ...imgProps } = props;
     // eslint-disable-next-line jsx-a11y/alt-text
-    return <img {...props} />;
+    return <img {...imgProps} />;
   },
 }));
 
