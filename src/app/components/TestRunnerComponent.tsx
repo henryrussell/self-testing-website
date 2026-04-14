@@ -1,5 +1,6 @@
 import { useState } from "react";
-import WorkflowStatusComponent from "./TestOutput"; // Import the new component
+import WorkflowStatusComponent from "./TestOutput"; // Import the workflow status component
+import TestSummary from "./TestSummary"; // Import the test summary component
 
 // Generate a simple CSRF token for local development
 function generateCSRFToken(): string {
@@ -12,7 +13,6 @@ export default function TestRunnerComponent() {
 
   const handleRunTests = async () => {
     setWorkflowStatus("Triggering workflow...");
-    console.log(workflowStatus);
 
     try {
       const csrfToken = generateCSRFToken();
@@ -46,7 +46,12 @@ export default function TestRunnerComponent() {
         <button onClick={handleRunTests}>Run All Tests</button>
       </div>
       {workflowStatus && <p>{workflowStatus}</p>}
-      {runId && <WorkflowStatusComponent runId={runId} />} {/* Conditionally render the WorkflowStatusComponent */}
+      {runId && (
+        <>
+          <TestSummary runId={runId} />
+          <WorkflowStatusComponent runId={runId} />
+        </>
+      )}
     </div>
   );
 }

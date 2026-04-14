@@ -26,6 +26,9 @@ jobs:
       run: npm ci
     - name: Run Unit tests
       run: npm run unit-tests
+    - name: Generate Test Summary
+      if: always()
+      run: node scripts/generate-test-summary.js
     - name: Build
       run: npm run build
     - name: Run Application
@@ -38,6 +41,9 @@ jobs:
       run: npx playwright install
     - name: Run Playwright tests
       run: npm run e2e-tests-headless
+    - name: Apply Light Mode Theme to Playwright Report
+      if: always()
+      run: node scripts/inject-report-theme.js
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
@@ -48,5 +54,5 @@ jobs:
       if: ${{ !cancelled() }}
       with:
         name: coverage-report
-        path: coverage/lcov-report/
+        path: coverage/
         retention-days: 30
